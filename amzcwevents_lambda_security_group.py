@@ -24,6 +24,8 @@
 #
 # Note: The permissions are not remediated within this function because doing so could possibly
 # trigger a recursion issue with this Lambda function triggering itself.
+#
+# 2017-01-13 - Added "Ipv6Ranges" to REQUIRED_PERMISSIONS to accommodate IPv6 within Amazon VPC.
 
 import boto3
 import botocore
@@ -42,7 +44,8 @@ REQUIRED_PERMISSIONS = [
     "ToPort" : 80,
     "UserIdGroupPairs" : [],
     "IpRanges" : [{"CidrIp" : "0.0.0.0/0"}],
-    "PrefixListIds" : []
+    "PrefixListIds" : [],
+    "Ipv6Ranges": []
 },
 {
     "IpProtocol" : "tcp",
@@ -50,7 +53,8 @@ REQUIRED_PERMISSIONS = [
     "ToPort" : 443,
     "UserIdGroupPairs" : [],
     "IpRanges" : [{"CidrIp" : "0.0.0.0/0"}],
-    "PrefixListIds" : []
+    "PrefixListIds" : [],
+    "Ipv6Ranges": []
 }]
 
 
